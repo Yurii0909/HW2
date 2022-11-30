@@ -1,33 +1,11 @@
-﻿Console.WriteLine("Задача 10");
- //Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
-//456 -> 5
-//782 -> 8
-//918 -> 1
-int a = 456;
-int b = 782;
-int c = 918;
-int a1 = a / 10;
-int a2 = a1 % 10;
-Console.WriteLine ($"{a2}");
-int b1 = b / 10;
-int b2 = b1 % 10;
-Console.WriteLine ($"{b2}");
-int c1 = c / 10;
-int c2 = c1 % 10;
-Console.WriteLine ($"{c2}");
+﻿//Задача 15: 
+//Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным.
+//6 -> да
+//7 -> да
+//1 -> нет
 
-int number = ReadInt("Введите трехзначное число: ");
-int amount = number.ToString().Length;
-
-if (amount < 3 || amount > 3)
-{
-    Console.WriteLine("Вы ввели не трехзначное число");
-}
-else
-{
-    Console.WriteLine(InCenter(number)); 
-}
-
+int dayNumber = ReadInt("Введите число от 1 до 7: ");
+Console.WriteLine(WorkHoliday(dayNumber));
 
 int ReadInt(string message)
 {
@@ -35,9 +13,23 @@ int ReadInt(string message)
     return Convert.ToInt32(Console.ReadLine());
 }
 
-int InCenter(int a4)
+
+string WorkHoliday(int a)
 {
-    
-    int result = ((a4 / 10) % 10);
-    return result;
+    if (a > 0 && a < 8)
+    {
+        if (a == 7 || a == 6)
+        {
+            Console.Write("Под цифрой " + a + " - Выходной");
+        }
+        else
+        {
+            Console.Write("Под цифрой " + a + " - Рабочий");
+        }
+    }
+    else
+    {
+        Console.Write("Вы ввели число не в пределах от 1 до 7, поэтому не возможно определить");
+    }
+    return " день.";
 }
